@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restoran Amad - Pesanan Makanan</title>
+    <style>
+        /* Reset gaya asas */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #34495e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item img {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .menu-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #219150;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .menu-item img {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+
+    <script>
+        // Fungsi untuk pengesahan borang
+        function sahkanPesanan() {
+            const nama = document.getElementById('nama').value;
+            const emel = document.getElementById('emel').value;
+            const makanan = document.getElementById('makanan').value;
+            const kuantiti = document.getElementById('kuantiti').value;
+            const alamat = document.getElementById('alamat').value;
+
+            if (!nama || !emel || !makanan || !kuantiti || !alamat) {
+                alert('Sila lengkapkan semua maklumat sebelum menghantar pesanan!');
+                return false;
+            }
+
+            alert(`Terima kasih, ${nama}! Pesanan anda untuk ${kuantiti} ${makanan} telah diterima.`);
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Restoran Amad</h1>
+        <p>Pesan Makanan Kegemaran Anda Dengan Mudah!</p>
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#pesanan">Pesanan</a></li>
+                <li><a href="#hubungi">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- Bahagian Menu -->
+        <section id="menu">
+            <h2>Menu Makanan</h2>
+
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/fife/ALs6j_FblLldqVuwLVdLo0UF_3dvHgo5wBS7Hi-zD7BX_MZTzIuwST-pNt2UmqHeb84imbZxG_1-0c3Ad-kjh3IxCsu8tNyLfRc_ny7i1aVZ-05KdQ-PwhJIpD1itBGrIuR1QjHVQwSWqpd3tNPIH0FwamPffLCHdH8MlEoqnVBtjB-352n1QiulnFW8-6YacHzFT88qWR5neBcM-3EwNY0ws29tndVgQOPurwlkxMJoTdO9DDtZa9AIkbRsIFDGUdksuygnWhy9TB_8pITa0IsEOeh6zhkN5UXLNh9IQQzcNRgGmdXk-YxBQdRTWTAb0UOB5lQAIa4pJ_7Ug4GjqySNMsibVfdz3cyZxByLj5xEryewILzHVFThS3S_S8UE6WG1gaT69VDmNRQ3IWVv5PG-_jxeJfiAdJGbAxqnICMqv3G3wCjig6TbdjfFhNFGO20O07SD7VZqCswQwRyVTDi8Q4Lj-hU2u5VlU6tpBRQsM1Fn_WTimWXeVtdJNYQHMTZT2Yzgl1MbbBgXEYTuAMbpolpxpaqBhAESYez2YRt7VlKIAcafM-AwykW4KMpYaI6lAPxAi1fR6Z_GmHRp9m382ovKV49ylzeSy1kICtY50rTneFT_8j5_an6ZBCeyIH6E70w6CCD0h2igKQL8csRUzOce-QWyZBeuQJSi6rktoqwj4mqMCs0YW-gBmE2mYDRS2KbKfZhEu5H3Mubm0BhzbrS8zyT0IN4M9Hl3UpZLbEWEPkywr025rDajLYyE7zWudMMEDoUG0755oBlAWYZZBLDAjbfOuF3hv432vryFIgM_D4OxDrOuSmRXESXa0krEu12Bju7-22JgSBs9oP1qoT55o9M0sSG3v0LYpDUHVzkbarpM2E7OdYcxWHHMDbwzEW2rKspJghrC1uxt-FICrfa6Y2K2nTf9CueexBu7AEP91PSW6ofoa8r6usDdY0txa646AGyBLPLVaTTk2CIjXLH2GNVk7mcTP9gLG3uVenwsp7UM4UZ9nLmplNU-LO4HT6GqeScx2auy5l8BZqIDZISphQBGQ6mCrasQ4fheUHPGdB8nDPQBu3JSJn74n4l8j70n4zccEYZofPIMLhsHxhE14zPwGmAsDa555mH32xI6Zrl_KxPiJb9uVVV7DjO9OmfP0ScKrWbRvGX7NnOuFHfWQArN5d5g4i-jj7f_0J2dFnI0nDm2bKO2e1Wr0pcMa5c_oFHkUQB3W7nssHE84dp2hyZw-WH5p0eoYfXEebuy6Ci9_2FeSFeOrCaWHWY6n77W7PuvX3L9OOrDnSuxsKow6H2kQpyP-opoP-FchO6WDfUiDkAeSI7n3wIhlUABYRFLti2R7Hyo2rDsZzPOpFnCcjgZqh1nl0ouI_KQzHGM8StGofUojFkpNe0Gj56Ujgj0pQJOKbrtZSc8ByVi3KamtYg9mUvS5GWUaK28lKmbmnxbWQLTWegI8Stwa5IZUSBwMaPkI0tV56rM1uqowR-G4nZfdeqc1tbmc3rajYYus9tOd5Cw6yJWzHV1Tf8jOcWFi9hSFeyN6mlEBMt1Ig-I8AyBjZD90h1fbTr9erV0Q2QvLq7LgTx_y0Sbpa7dVFX4EWAgLpv21XP-NQQ=w348-h260-p-k-nu" alt="Nasi Lemak">
+                <div class="menu-details">
+                    <h3>Nasi Lemak</h3>
+                    <p>RM8.00 - Jangan order nasi lemak masa puasa.</p>
+                    <button class="btn">Tempah Sekarang</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/fife/ALs6j_G5jbs5-Qu7B8Is9-DalZWzLD8HzQ0hE7hsMtZp38Cg4lhzTrqdZaU_lbxGZuYFUkGWHz_dfLi08aLuAcbHRwqmym2Ngc1axThUCzCLXdIdDfYa4uUzHSv27m3wtsKYnsBWyVE-XLJD39zgfrNxgRTf0DamtVvGwQK1OUh9GG1mXhAcn5oAZ6dbSVaAC59304TtB3EgWyixkYfrM3eZOexerFw3afQmMYo7rfpxomuYU_dq4RMDaAnXuqGh-05GTGS7k_dwlZhqdygXVp0W8hczh-Bxtmw8RRV4gr_AoWkVoR4bF5NfhCWI4bFwUM3w7CnV7Nnu_qh7miQVWh8_zPrRNYcbMnMzsQAxFTbEKL3Xra-r3Tb_npc1_wcn9TvZLYyTLop3VRXVjxzGZ6oSKlRagqbywLcGI5ZMKIqUzq-mvOJBawAClh-nu1XaSPqB0k2J7LhBFtAGhl8aVhPLlrMgiX10yfvLr-DW3Nra4rD4ruRoeBSgV6jjNya4IIEMrrjpodLvVpTgxqs1Q-WPLVD-Jc71XtHJNKUHeiO9dg1dIuWfqjXuZt3wAi5gzlj8KgNSB8WMvXdeA5pZfNT8UncHrV7p2qK30DbWiVjTA0LHh01esa8K0Wv6-UtX0SaSJ4KgwzBJxpXJiMFlU0XmYRios7ybt4JWJ22VRsv5tfFG-ZieG4ZZMqzf6jFkYxP4W-5EtiSH_yp2AyUaS2hgrCWNWE24O_wKFZ8Z1kkpNzQh5-fsUMsuxQZuA5IZ9NTw84SxlQRMcWuyqv9WVE8Xl_1KOhxkljh2B3EgPcEQBqAsqhwpENJFglc7B713KUlVXqOHMo7wETJRAg_m-FvU054nhCdnNZ4sRU9Edg5I-Tk-_9ZrfTrRMS9gedR0TgAav5wVu0_w8EwanZkH9HkUMZTFg2cnRgY9Sw4wv5bnY_gsGGGKTMTaXbAdDcbXRUC0MTDYK_shAqzRwSB_mYIqTq1Iht-lLzwahPQftECizo8OGMdbizGMloB3jOhIqtv0g6-rujBIDanghj5kmFDTekpzeJe1edYcpWfbjbCgH9hwyaLzKZxAdZnwRLbwg4lOYmiArcB-_sVe9B_kvVGCroR1doY_OMp8ErotOcBMkNEf8Y7xkREgZqK2xAOwjA34Pg9VyN3KGFHY5pQYMoSEtlBol29-LpjPWm7BxnK2xfQmg8rR6BG5rqKEnpOfnbqfU3p1od6KATwNQ8XxIsGlgHfU867YqR9wgp7_TqD9rj-qfh8INUqb418_je4IaNXlP2tYMa5OAosGduQ_8N5L0wSGfGio2p7YVBiD4UxjgaWkP4tvhdr2MN-UsqHxjPbN5zM3Z4ZdUeO9qrfQNyb34hXBD8tEr4dcVRN6N3qKOBDNOptURJ85sS_c3lnGm-AiXhsXhmCCdCCRIobou_jE3qslDSQdxCj1qac2GM0zQqdGL5SGfqSOaNHlOmzMuSwvbjhy_4I2CWxQ1kcSoe0YSikFuiw11GQdc0YfX-tFWWkz9n4gEpMHtzlXpLkhF5QN6-YIqHIv0rvPwxCrejGW2Ga92SyQDJHegr2TE0UkFrAk_1dmU7AWVfOBcv7h7iBGYLv9AcpBg_Bd9JGMpXxz9Q=w348-h260-p-k-nu" alt="Ayam Goreng">
+                <div class="menu-details">
+                    <h3>Ayam Goreng</h3>
+                    <p>RM10.00 - Order ayam goreng waktu berbuka je bro!</p>
+                    <button class="btn">Tempah Sekarang</button>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <img src="https://lh3.googleusercontent.com/fife/ALs6j_G9dWa0vVudYhXB5DZOFK7T9cJoDD7XO4KpEUEiAaGh1wUtak_PEotJsz1h_nSWybHC9pWStZYf5gOSFKTkZpAFyduk6pk5cQx4l-LsPT-CnzmwJKWEU-NMxhGryZH8Ip9QSAxyHQ_t6RNLocEIdkvT3IxgFJSTZ1SFfb3Y_yEvFfiPGMifPJuCGhHTGPZxszz0hCtzu_K_G6qx_dSEqNLD3EK-vsYi18-nPxMXmbvr-eFWnZFSfalElfGT55WxgNslBBKuE0jiSc74OIQlBnWKahw5XnjqoprR7tUurQPUy6-nX0HYEYQqKWpZYdfr5uLgQ1s5G9TiC1QDnxoBssylUIf5nhSGh-537u8TRY-Ryb1qfJXq4oT_qkPkUr-b_klgxL41QxCzk6vg8nMn3BTKI1DUMC8GVnaxcS6WqR9O7sNO-tm31DpKLqxjV47-704LO4itR0NgNUW5JisIPelLbzeFqg2W9rzU1bf1PkK7kK2vQ7az1cTZxG-B9xfZa8DavlAecKb5G-oAHmXDpfEfpsWBm5UzpIatnyKsoN0Tn_2m7CouWyYA242t5xkIMCHVGNKztq6se6m6ou6EI5T4rq_C9sNZ0JdsnKJpunm-Kx9ju_F9KlOoNlCmT6sKqHFvtRNokBmaumwF99iAow_RsmxBQRzcr181o2lhK29r_xHJSXLnyxNv6XuAZrLt4eB574FWGU9nHghLgxtj4KzE7pRG0FY4TRIX9kv8hxvXpv6PmYXRqWsp_ElffPi3d9lvtK5SIgcZSYhE6yrwzULzvVpz0jG_4mAjAbF_Fis1f4CkXdIRAkTUUPJko9o701cJ2Ng8zbreOrQavzSijbJTxe3gfalkVM_Mjk2s1icXuWBCGPxCLt9oeqN-4Mjf64mJOCqkZu_XvvsoLUZ5tNHVSzdIXwIHw5GBvai8_VIurP212BQWaI-vv5I8j1chr9iVqQFCn4OBub3ar-RSGSxCiqkUBUjyP2JJ1AVGN2wqxdhR6VZfStczW4FW36spDix0jD5QECDQKtJh3Hy9QGrKt1nK5wyqISfZedpuRhhW7LdMn2LbqPoGrIrHWN-PQjwGEpGcu851jSWcwnu0cu_JVOdoNRuERozmxzzuvxpSpLxAL539owkhK7HSit4Mke8uttfKz5BvQUuf3qFA4CTs_wxLojVlkrmKUHZZrmQLvv9N3TIo72QAz4JRPFlzJSpyJE_FvjrVTU696cBdKgNPG-qTMg-W49qucgWTC3MWrZSMcjeXvtv7IJGg6oag2ixtoVavIbK1FS6CRVTkdfuZ2GrjqhdXFJFw0TQyrXh9ddhJkTYJ9mXPD-JF_CkZ5B5mMDpiZggb2zdiiweUoopYasjeROzdoQEbSV_6KP6D2sPhOf2_UkZpyGi7bu3mzDWwoRzCNvBZeNRydCUj4CKyo62X8YB7N9GDMZ4CLq-4D1ucOjnw5ulWkHyu1ybmNSG1c6qyivmX_KjyVsA5sLnhqrh5XrhQtoaVcgZMeNVucQZDYBIRQ9RLEdqCq784EV6DRnFHIZA1n-gw86_YaECU0ss9Rg6sJPDZnWQ2ccWrk7KezBObjsHVDzUL7tyv9fGOhLFliQCVZKrijAt4ow=w348-h260-p-k-nu" alt="Teh Tarik">
+                <div class="menu-details">
+                    <h3>Teh Tarik</h3>
+                    <p>RM3.00 - Jangan jatuhkan air liur anda.</p>
+                    <button class="btn">Tempah Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bahagian Borang Pesanan -->
+        <section id="pesanan">
+            <h2>Borang Pesanan</h2>
+            <form onsubmit="return sahkanPesanan()">
+                <input type="text" id="nama" placeholder="Nama Penuh" required>
+                <input type="email" id="emel" placeholder="Alamat Emel" required>
+                <select id="makanan" required>
+                    <option value="">-- Pilih Makanan --</option>
+                    <option value="Nasi Lemak">Nasi Lemak</option>
+                    <option value="Ayam Goreng">Ayam Goreng</option>
+                    <option value="Teh Tarik">Teh Tarik</option>
+                </select>
+                <input type="number" id="kuantiti" placeholder="Kuantiti" min="1" required>
+                <textarea id="alamat" placeholder="Alamat Penghantaran" rows="3" required></textarea>
+                <button type="submit" class="btn">Hantar Pesanan</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Restoran Amad. Hak Cipta Terpelihara.</p>
+        <p Hubungi kami di <a href="mailto:info@restoranamad.com">Selamat Berpuasa daripada -Amad-</a></p>
+    </footer>
+
+</body>
+</html>
